@@ -20,11 +20,15 @@ Wczytujemy plik CSV
 ```{r}
 data=read_csv("Video_Games_Sales_as_at_22_Dec_2016.csv")
 ```
-Sprawdzamy strukturę data frame'u.Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdy w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
+Sprawdzamy strukturę data frame'u.
 ```{r}
 str(data)
 
 ```
+![screen1](https://user-images.githubusercontent.com/56741227/73788531-77965580-479d-11ea-897c-5d930e814483.png)
+
+Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdy w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
+
 Tak prezentuje się struktura data frame'u po transformacji danych.
 
 
