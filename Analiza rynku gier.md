@@ -27,7 +27,7 @@ str(data)
 ```
 ![screen1](https://user-images.githubusercontent.com/56741227/73788531-77965580-479d-11ea-897c-5d930e814483.png)
 
-Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdy w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
+Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdyż w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
 
 Tak prezentuje się struktura data frame'u po transformacji danych.
 
@@ -43,10 +43,14 @@ data$User_Score=as.numeric(data$User_Score)
 str(data)
 
 ```
+![screen2](https://user-images.githubusercontent.com/56741227/73788839-0a36f480-479e-11ea-8726-3f078c9ac994.png)
+
 Użyję funckji summary() by pobieżnie,zobaczyć rozkład danych.
 ```{r}
 summary(data)
 ```
+![screen3](https://user-images.githubusercontent.com/56741227/73788875-191da700-479e-11ea-9fcf-e631485c2812.png)
+
 Breaks_rating oraz labels_rating będą mi potrzebne, wykres,który znajduje się poniżej był lepiej czytelny.
 
 ```{r}
@@ -69,6 +73,7 @@ data %>%
   ylab("sprzedaż w milionach")+
   xlab("Ograniczenie wiekowe")
 ```
+![000003](https://user-images.githubusercontent.com/56741227/73789020-55510780-479e-11ea-8ec2-1f17c4c38f98.png)
 
 ```{r}
 
