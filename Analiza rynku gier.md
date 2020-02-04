@@ -1,13 +1,33 @@
+# Analiza rynku gier
 
+Co  chcę osiągnąć dzięki analizie pliku csv,który zawiera dane na temat gier.
+
+1.Co łączy gry,które sprzedały się w największej ilości.
+
+2.Sprawdzić czy oceny użytkowników oraz krytyków są skorelowane.
+
+## 1 
+
+ Na początku instalujemy biblioteki,które będą nam potrzebne do analizy danych
+ 
 ```
 library(tidyverse)
 library(lubridate)
 
 ```
+Wczytujemy plik CSV
 
 ```{r}
 data=read_csv("Video_Games_Sales_as_at_22_Dec_2016.csv")
 ```
+Sprawdzamy strukturę data frame'u.Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdy w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
+```{r}
+str(data)
+
+```
+Tak prezentuje się struktura data frame'u po transformacji danych.
+
+
 
 ```{r}
 data=data %>%
@@ -15,22 +35,22 @@ data=data %>%
 data$Name=as.character(data$Name)
 data$Year_of_Release=format(as.Date(data$Year_of_Release,"%Y"),"%Y")
 data$User_Score=as.numeric(data$User_Score)
-data$Publisher=as.factor(data$Publisher)
 
 str(data)
 
 ```
-
+Użyję funckji summary() by pobieżnie,zobaczyć rozkład danych.
 ```{r}
 summary(data)
 ```
+Breaks_rating oraz labels_rating będą mi potrzebne, wykres,który znajduje się poniżej był lepiej czytelny.
 
 ```{r}
 breaks_rating=c("RP","EC","E","K-A","E10","T","M","AO")
 labels_rating=c("Ograniczenie oczekujące","Wczesne dzieciństwo","Każdy","Każdy","Każdy 10+","Nastolatkowie",
                 "Dojrzali","Tylko dorośli")
 ```
-
+Wykres pokazuje jak poszczególne ograniczenia wiekowe korelowały ze światową sprzedażą
 ```{r}
 data %>%
   filter(!is.na(Rating),data$Global_Sales>quantile(data$Global_Sales,.95)) %>%
