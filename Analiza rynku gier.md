@@ -122,4 +122,4 @@ Wykres pokazuje jak korelowała światowa sprzedaż z rodzajem gry.Gry sportowe 
 ![000003](https://user-images.githubusercontent.com/56741227/74109656-7a21f200-4b85-11ea-8590-ba4ebd485b7b.png)
 
 
-Z tej pobieżnej analizy można wywnioskować,aby gra odniosła sukces musi być grą akcji dla każdego wydanej na Nintendo Wii.
+Z tej pobieżnej analizy można wywnioskować,aby gra odniosła sukces musi być grą akcji dla każdego wydaną na Nintendo Wii.
