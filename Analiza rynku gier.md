@@ -25,11 +25,21 @@ Sprawdzamy strukturę data frame'u.
 str(data)
 
 ```
+![Zrzut ekranu (22)](https://user-images.githubusercontent.com/56741227/74109473-0501ed00-4b84-11ea-8d08-cb5f1495ea44.png)
+
+Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdyż w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.Teraz sprawdzimy jak wygląda sytuacja z pustymi danymi.
+
+![Zrzut ekranu (24)](https://user-images.githubusercontent.com/56741227/74109536-91acab00-4b84-11ea-9079-70c65065a0f1.png)
 
 
-Widzimy,że składa on się z danych typu character oraz numeric,co nie jest optymlane dla nas,gdyż w kolumnach Genre,Rating,Platform oraz Publisher dane możemy zmienić na factory.
 
-Tak prezentuje się struktura data frame'u po transformacji danych.
+
+Oczyszczenie oraz transformacja danych
+
+```{r}
+data=data %>%
+  drop_na()
+```
 
 
 
@@ -43,15 +53,17 @@ data$User_Score=as.numeric(data$User_Score)
 str(data)
 
 ```
+Struktura data frame'u po oczyszczeniu i transformacji danych
 
+![Zrzut ekranu (23)](https://user-images.githubusercontent.com/56741227/74109579-e8b28000-4b84-11ea-9d55-ee3e574ea83b.png)
 
 Użyję funckji summary() by pobieżnie,zobaczyć rozkład danych.
 ```{r}
 summary(data)
 ```
+![Zrzut ekranu (25)](https://user-images.githubusercontent.com/56741227/74109591-fd8f1380-4b84-11ea-95ac-20de7b3d4ae1.png)
 
-
-Breaks_rating oraz labels_rating będą mi potrzebne, wykres,który znajduje się poniżej był lepiej czytelny.
+Breaks_rating oraz labels_rating będą mi potrzebne,aby  wykres,który znajduje się poniżej był lepiej czytelny.
 
 ```{r}
 breaks_rating=c("RP","EC","E","K-A","E10","T","M","AO")
@@ -73,7 +85,7 @@ data %>%
   ylab("sprzedaż w milionach")+
   xlab("Ograniczenie wiekowe")
 ```
-![000003](https://user-images.githubusercontent.com/56741227/73789020-55510780-479e-11ea-8ec2-1f17c4c38f98.png)
+![wykres1](https://user-images.githubusercontent.com/56741227/74109622-4a72ea00-4b85-11ea-8ea0-c64168610b95.png)
 
 ```{r}
 
@@ -88,6 +100,7 @@ data %>%
   ylab("Sprzedaż w milionach")+
   xlab("Platforma")
 ```
+![wykres2](https://user-images.githubusercontent.com/56741227/74109639-64acc800-4b85-11ea-8918-9030f19693d0.png)
 
 ```{r}
 data %>%
@@ -101,3 +114,4 @@ data %>%
     ylab("Sprzedaż w milionach")+
     xlab("Typ gry")
 ```
+![000003](https://user-images.githubusercontent.com/56741227/74109656-7a21f200-4b85-11ea-8590-ba4ebd485b7b.png)
