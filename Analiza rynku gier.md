@@ -63,6 +63,8 @@ summary(data)
 ```
 ![Zrzut ekranu (25)](https://user-images.githubusercontent.com/56741227/74109591-fd8f1380-4b84-11ea-95ac-20de7b3d4ae1.png)
 
+Na tym zdjęciu widzimy jak ciężko osiągnąć sukces w tej branży(Kolumny z Sales).
+
 Breaks_rating oraz labels_rating będą mi potrzebne,aby  wykres,który znajduje się poniżej był lepiej czytelny.
 
 ```{r}
@@ -70,7 +72,7 @@ breaks_rating=c("RP","EC","E","K-A","E10","T","M","AO")
 labels_rating=c("Ograniczenie oczekujące","Wczesne dzieciństwo","Każdy","Każdy","Każdy 10+","Nastolatkowie",
                 "Dojrzali","Tylko dorośli")
 ```
-Wykres pokazuje jak poszczególne ograniczenia wiekowe korelowały ze światową sprzedażą
+
 ```{r}
 data %>%
   filter(!is.na(Rating),data$Global_Sales>quantile(data$Global_Sales,.95)) %>%
@@ -85,6 +87,7 @@ data %>%
   ylab("sprzedaż w milionach")+
   xlab("Ograniczenie wiekowe")
 ```
+Wykres pokazuje jak poszczególne ograniczenia wiekowe korelowały ze światową sprzedażą.Chcemy osiągnąć sukces,więc wziąłem pod uwagę tylko 5% najlepszych gier.Najlepiej sprzedają się gry z kategorią dla każdego oraz dla dorosłych.
 ![wykres1](https://user-images.githubusercontent.com/56741227/74109622-4a72ea00-4b85-11ea-8ea0-c64168610b95.png)
 
 ```{r}
@@ -100,6 +103,7 @@ data %>%
   ylab("Sprzedaż w milionach")+
   xlab("Platforma")
 ```
+Wykres pokazuje jak korelowała światowa sprzedaż z rodzajem platformy na jaką gra została wydana.Widzimy,że Wii i Xbox 360 wypadły tutaj najlepiej.
 ![wykres2](https://user-images.githubusercontent.com/56741227/74109639-64acc800-4b85-11ea-8918-9030f19693d0.png)
 
 ```{r}
@@ -114,4 +118,8 @@ data %>%
     ylab("Sprzedaż w milionach")+
     xlab("Typ gry")
 ```
+Wykres pokazuje jak korelowała światowa sprzedaż z rodzajem gry.Gry sportowe oraz strzelanki były najbardziej popularne.
 ![000003](https://user-images.githubusercontent.com/56741227/74109656-7a21f200-4b85-11ea-8590-ba4ebd485b7b.png)
+
+
+Z tej pobieżnej analizy można wywnioskować,aby gra odniosła sukces musi być grą akcji dla każdego wydanej na Nintendo Wii.
